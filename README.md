@@ -1,19 +1,16 @@
-# 🧠 Alzheimer Disease Prediction System
+#  Alzheimer Disease Prediction System
 
-An AI-powered web application for predicting Alzheimer’s disease risk using machine learning models. Built with Streamlit and deployed as an interactive hospital-style dashboard.
+An AI-powered web application for predicting Alzheimer’s disease risk using machine learning models.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🧠 Alzheimer prediction using ML (XGBoost / Random Forest)
+- 🧠 Alzheimer prediction using ML
 - 🏥 Clean hospital dashboard UI
 - 📊 Real-time patient risk analysis
-- 🧾 Downloadable PDF medical report
-- 🔐 Doctor/Admin login system
-- 🌐 Public deployment via Streamlit Cloud
+
 
 ---
-
-## 📂 Project Structure
+APP LINK-https://early-alzheimer-s-detection-model-ijdhogdappbzytnuktla8ra.streamlit.app
 
