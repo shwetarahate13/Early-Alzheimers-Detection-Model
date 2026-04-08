@@ -1,17 +1,4 @@
-# ============================================================
-#   ALZHEIMER'S DISEASE PREDICTION — MULTI-MODEL COMPARISON
-#   Dataset  : OASIS Cross-Sectional (oasis_cross-sectional.csv)
-#   Models   : Random Forest, XGBoost, SVM, KNN
-#   + Full Graphical EDA
-# ============================================================
-#
-# INSTALL:
-#   pip install pandas numpy scikit-learn matplotlib seaborn xgboost
-#
-# DATASET:
-#   https://www.kaggle.com/datasets/jboysen/mri-and-alzheimers
-#   → Download oasis_cross-sectional.csv → same folder as this file
-# ============================================================
+
 
 import pandas as pd
 import numpy as np
@@ -32,7 +19,7 @@ from sklearn.metrics import (
 )
 from xgboost import XGBClassifier
 
-# ── Palette ─────────────────────────────────────────────────
+
 COLORS = {
     'teal'   : '#1D9E75',
     'coral'  : '#D85A30',
@@ -47,9 +34,9 @@ sns.set_style("whitegrid")
 plt.rcParams.update({'font.family': 'DejaVu Sans', 'axes.spines.top': False,
                      'axes.spines.right': False})
 
-# ════════════════════════════════════════════════════════════
+
 #  SECTION 1 — LOAD & CLEAN DATA
-# ════════════════════════════════════════════════════════════
+
 print("\n" + "="*60)
 print("  ALZHEIMER PREDICTION — MULTI-MODEL + EDA")
 print("="*60)
@@ -79,9 +66,8 @@ print(f" Cleaned dataset: {df.shape[0]} rows")
 print(f" Class balance  : {df['Alzheimer'].value_counts().to_dict()}")
 
 
-# ════════════════════════════════════════════════════════════
+
 #  SECTION 2 — GRAPHICAL EDA  (10 plots across 3 figures)
-# ════════════════════════════════════════════════════════════
 print("\n\n--- Generating EDA Plots ---")
 
 DIAG_PALETTE = {'No Alzheimer': COLORS['teal'], 'Has Alzheimer': COLORS['coral']}
@@ -242,9 +228,9 @@ plt.show()
 print("  Saved: eda_distributions.png")
 
 
-# ════════════════════════════════════════════════════════════
+
 #  SECTION 3 — MODEL TRAINING
-# ════════════════════════════════════════════════════════════
+
 print("\n\n--- Training 4 Models ---")
 
 FEATURES = [f for f in ['Gender', 'Age', 'Educ', 'SES', 'MMSE', 'eTIV', 'nWBV', 'ASF']
@@ -324,9 +310,9 @@ for name, cfg in models.items():
           f"CV={results[name]['cv_mean']*100:.1f}±{results[name]['cv_std']*100:.1f}%")
 
 
-# ════════════════════════════════════════════════════════════
+
 #  SECTION 4 — MODEL COMPARISON PLOTS
-# ════════════════════════════════════════════════════════════
+
 print("\n--- Generating Model Comparison Plots ---")
 
 names  = list(results.keys())
@@ -446,9 +432,9 @@ plt.show()
 print("  Saved: metrics_features.png")
 
 
-# ════════════════════════════════════════════════════════════
+
 #  SECTION 5 — PREDICT ON NEW PATIENT (ALL MODELS)
-# ════════════════════════════════════════════════════════════
+
 print("\n\n--- Predict New Patient (All Models) ---")
 
 new_patient_raw = pd.DataFrame([{
@@ -474,9 +460,9 @@ for name, cfg in models.items():
     print(f"  {name:<16} → {label:<16} | Prob: {proba*100:.1f}%  Risk: {risk}")
 
 
-# ════════════════════════════════════════════════════════════
+
 #  FINAL SUMMARY TABLE
-# ════════════════════════════════════════════════════════════
+
 print("\n\n" + "="*65)
 print("  FINAL MODEL COMPARISON SUMMARY")
 print("="*65)
