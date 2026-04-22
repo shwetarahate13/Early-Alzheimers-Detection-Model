@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 # Load model
-model = pickle.load(open("model-2.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 features = pickle.load(open("features.pkl", "rb"))
 
 # Page config
